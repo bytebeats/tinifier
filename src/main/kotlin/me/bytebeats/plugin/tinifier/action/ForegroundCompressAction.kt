@@ -15,6 +15,6 @@ class ForegroundCompressAction : BaseCompressAction() {
         }
         setupApiKey(p)
         val supportedFiles = filterSupportedFiles(roots, false)
-        // TODO: 2022/6/23 show dialog later
+        TODO("foreground compress images")
     }
 }

@@ -27,7 +27,16 @@
     </application-components>
     <actions>
         <group id="TinifierCompressActionGroup" class="me.bytebeats.plugin.tinifier.action.group.CompressActionGroup"
-               text="Tinifier" description="Tinifier compress pngs and jp(e)gs.">
+               icon="AllIcons.General.ExternalTools" text="Tinifier" description="Tinifier compress pngs and jp(e)gs.">
+            <action id="TinifierForegroundCompressAction"
+                    class="me.bytebeats.plugin.tinifier.action.ForegroundCompressAction"
+                    text="Compress Images..."
+                    description="Compress images with TinyPNG"/>
+            <action id="TinifierBackgroundCompressAction"
+                    class="me.bytebeats.plugin.tinifier.action.BackgroundCompressAction"
+                    text="Compress in Background"
+                    description="Compress images with TinyPNG in background"/>
+
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </group>
