@@ -1,0 +1,18 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>me.bytebeats.plugin.tinifier</id>
+    <name>Tinifier</name>
+    <vendor email="happychinapc@gmail.com" url="https://github.com/bytebeats/tinifier">bytebeats</vendor>
+    <version>0.1.0</version>
+    <idea-version since-build="212"/>
+
+    <description><![CDATA[
+    Tinifier: compress PNG and JPG/JPEG smartly and powerfully,  based on <a href="https://tinypng.com/">TinyPNG</a> service.<br>
+  ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+</idea-plugin>
