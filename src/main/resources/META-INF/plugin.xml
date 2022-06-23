@@ -20,4 +20,11 @@
             <implementation-class>me.bytebeats.plugin.tinifier.TinifierApplicationComponent</implementation-class>
         </component>
     </application-components>
+    <actions>
+        <group id="TinifierCompressActionGroup" class="me.bytebeats.plugin.tinifier.action.group.CompressActionGroup"
+               text="Tinifier" description="Tinifier compress pngs and jp(e)gs.">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </group>
+    </actions>
 </idea-plugin>

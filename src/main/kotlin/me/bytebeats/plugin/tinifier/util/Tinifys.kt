@@ -8,7 +8,7 @@ import com.tinify.Tinify
 import me.bytebeats.plugin.tinifier.Preferences
 import java.io.IOException
 
-fun setupApiKey(project: Project): Boolean {
+fun setupApiKey(project: Project?): Boolean {
     if (Tinify.key().isNullOrEmpty()) {
         val preferences = Preferences.getInstance()
         if (preferences.apiKey.isNullOrEmpty()) {
