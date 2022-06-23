@@ -13,7 +13,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationService serviceImplementation="me.bytebeats.plugin.tinifier.Preferences"/>
+        <applicationConfigurable instance="me.bytebeats.plugin.tinifier.ui.TinifierConfigurable"
+                                 displayName="Tinifier"
+                                 id="me.bytebeats.plugin.tinifier"
+                                 groupId="tools"
+        />
     </extensions>
     <application-components>
         <component>
