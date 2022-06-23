@@ -15,4 +15,9 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <application-components>
+        <component>
+            <implementation-class>me.bytebeats.plugin.tinifier.TinifierApplicationComponent</implementation-class>
+        </component>
+    </application-components>
 </idea-plugin>
