@@ -1,16 +1,18 @@
 package me.bytebeats.plugin.tinifier
 
-import com.intellij.configurationStore.APP_CONFIG
+import com.intellij.ide.plugins.PluginManager
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
+import com.intellij.openapi.extensions.PluginId
 import com.intellij.util.xmlb.XmlSerializerUtil
-import me.bytebeats.plugin.tinifier.util.TINIFIER
+import me.bytebeats.plugin.tinifier.util.NotificationUtil
 import java.awt.Dimension
 import java.awt.Point
+import java.util.*
 
-@State(name = TINIFIER, storages = [Storage("$APP_CONFIG$/tinifier.xml")])
+@State(name = "me.bytebeats.plugin.tinifier", storages = [Storage("tinifier.xml")])
 class Preferences : PersistentStateComponent<Preferences> {
     var version: String? = null
     var uuid: String? = null
@@ -42,7 +44,24 @@ class Preferences : PersistentStateComponent<Preferences> {
         XmlSerializerUtil.copyBean(state, this)
     }
 
+    override fun initializeComponent() {
+        super.initializeComponent()
+        val plugin = PluginManager.getPlugin(PluginId.getId(PLUGIN_ID)) ?: return
+        if (uuid.isNullOrEmpty()) {
+            uuid = UUID.randomUUID().toString()
+        }
+        if (username.isNullOrEmpty()) {
+            username = uuid
+        }
+        if (plugin.version != version) {
+            version = plugin.version
+            val popupTitle = "${plugin.name} v${plugin.version}"
+            NotificationUtil.infoBalloon(popupTitle, plugin.changeNotes)
+        }
+    }
+
     companion object {
+        internal const val PLUGIN_ID = "me.bytebeats.plugin.tinifier"
         fun getInstance(): Preferences = ApplicationManager.getApplication().getService(Preferences::class.java)
     }
 }

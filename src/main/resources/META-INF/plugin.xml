@@ -8,7 +8,11 @@
 
     <description><![CDATA[
     Tinifier: compress PNG and JPG/JPEG smartly and powerfully,  based on <a href="https://tinypng.com/">TinyPNG</a> service.<br>
-  ]]></description>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    First release.
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
@@ -17,14 +21,14 @@
         <applicationConfigurable instance="me.bytebeats.plugin.tinifier.ui.TinifierConfigurable"
                                  displayName="Tinifier"
                                  id="me.bytebeats.plugin.tinifier"
-                                 groupId="tools"
-        />
+                                 groupId="tools"/>
+        <notificationGroup displayType="NONE" id="Tinifier Log" icon="AllIcons.General.NotificationInfo"
+                           isLogByDefault="true"/>
+        <notificationGroup displayType="BALLOON" id="Tinifier Balloon" icon="AllIcons.General.NotificationWarning"
+                           isLogByDefault="true"/>
+        <notificationGroup displayType="TOOL_WINDOW" id="Tinifier Tool Window" icon="AllIcons.Plugins.Updated"
+                           toolWindowId="Tinifier Tool Window" isLogByDefault="true"/>
     </extensions>
-    <application-components>
-        <component>
-            <implementation-class>me.bytebeats.plugin.tinifier.TinifierApplicationComponent</implementation-class>
-        </component>
-    </application-components>
     <actions>
         <group id="TinifierCompressActionGroup" class="me.bytebeats.plugin.tinifier.action.group.CompressActionGroup"
                icon="AllIcons.General.ExternalTools" text="Tinifier" description="Tinifier compress pngs and jp(e)gs.">

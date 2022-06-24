@@ -7,12 +7,13 @@ import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
 import com.intellij.util.ui.tree.TreeUtil;
 import me.bytebeats.plugin.tinifier.Preferences;
+import me.bytebeats.plugin.tinifier.ui.ToolbarsKt;
+import me.bytebeats.plugin.tinifier.ui.filetree.FileTreeCellRenderer;
 import me.bytebeats.plugin.tinifier.ui.component.JImage;
 import me.bytebeats.plugin.tinifier.ui.dialog.listener.ImageSelectionListener;
 import me.bytebeats.plugin.tinifier.ui.dialog.listener.impl.CancelActionListener;
 import me.bytebeats.plugin.tinifier.ui.dialog.listener.impl.CompressActionListener;
 import me.bytebeats.plugin.tinifier.ui.dialog.listener.impl.SaveActionListener;
-import me.bytebeats.plugin.tinifier.ui.filetree.FileTreeCellRenderer;
 import me.bytebeats.plugin.tinifier.ui.filetree.FileTreeNode;
 import me.bytebeats.plugin.tinifier.util.ConstsKt;
 import org.jetbrains.annotations.Nullable;
@@ -28,8 +29,6 @@ import java.awt.event.*;
 import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
-
-import static me.bytebeats.plugin.tinifier.ui.ToolbarsKt.createToolbar;
 
 public class CompressImageDialog extends JDialog {
     private JPanel contentPanel;
@@ -209,7 +208,6 @@ public class CompressImageDialog extends JDialog {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         UIUtil.removeScrollBorder(imgFilesScrollPane);
         imgBeforePanel = new JImage();
         compressedImgAfterPanel = new JImage();
@@ -224,7 +222,7 @@ public class CompressImageDialog extends JDialog {
     }
 
     private void configureToolbar() {
-        toolbar = createToolbar();
+        toolbar = ToolbarsKt.createToolbar();
     }
 
     private FileTreeNode buildTree() {

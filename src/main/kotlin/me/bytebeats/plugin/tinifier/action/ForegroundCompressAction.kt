@@ -3,6 +3,7 @@ package me.bytebeats.plugin.tinifier.action
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.wm.WindowManager
+import me.bytebeats.plugin.tinifier.ui.dialog.CompressImageDialog
 import me.bytebeats.plugin.tinifier.util.setupApiKey
 
 class ForegroundCompressAction : BaseCompressAction() {
@@ -15,6 +16,8 @@ class ForegroundCompressAction : BaseCompressAction() {
         }
         setupApiKey(p)
         val supportedFiles = filterSupportedFiles(roots, false)
-        TODO("foreground compress images")
+        val dialog = CompressImageDialog(p, supportedFiles, roots.toList())
+        dialog.setDialogSize(frame)
+        dialog.isVisible = true
     }
 }
